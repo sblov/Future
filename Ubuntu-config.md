@@ -208,3 +208,89 @@ EndSection
 ```
 
 重启
+
+## Mysql 
+
+`https://dev.mysql.com/doc/refman/8.0/en/linux-installation-debian.html`：文档
+
+1、下载DEB Bundle的tar包（ubuntu mysql下）
+
+`tar xvf mysql-server_xxx-1ubuntuxxx_amd64.deb-bundle.tar `
+
+2、根据文档提示安装，最好一条条执行deb包，不批量执行（`sudo apt-get -f install`安装未安装依赖）
+
+> 数据库目录：`/var/lib/mysql/ `
+>
+> 配置文件：`/usr/share/mysql（`命令及配置文件） ，`/etc/mysql（`如：my.cnf）
+>
+> 相关命令：`/usr/bin`(mysqladmin mysqldump等命令) 和`/usr/sbin`
+>
+> 启动脚本：`/etc/init.d/mysql`（启动脚本文件mysql的目录）
+
+> 服务启动后端口查询
+> `sudo netstat -anp | grep mysql`
+> 启动
+> `sudo service mysql start`
+> 停止
+> `sudo service mysql stop`
+> 服务状态
+> `sudo service mysql status`
+
+## NVIDIA显卡驱动
+
+​	由于ubuntu系统对显卡支持问题，会因为没有相应的显卡驱动加大cpu的负荷，应安装对应显卡的驱动
+
+**驱动下载：** https://www.geforce.cn/drivers
+
+​	下载 `NVIDIA-Linux-x86_64-418.56.run`（对应驱动文件）
+
+**安装**
+
+1、ubuntu 默认安装了第三方开源的驱动程序nouveau，安装nvidia显卡驱动首先需要禁用nouveau，不然会碰到冲突的问题，导致无法安装nvidia显卡驱动
+
+> `sudo vim /etc/modprobe.d/blacklist.conf `
+>
+> 添加：
+>
+> ```shell
+> blacklist nouveau
+> 
+> options nouveau modeset=0
+> ```
+
+2、更新系统并重启
+
+> `sudo update-initramfs -u`
+>
+> `reboot`
+
+3、验证nouveau是否已禁用
+
+> `lsmod | grep nouveau`    #无返回值则禁用成功
+
+4、切入命令行执行（`ctrl+alt+f1`）
+
+> ```shell
+> sudo service lightdm stop      #这个是关闭图形界面，不执行会出错
+> 
+> sudo apt-get remove nvidia-*  #卸载掉原有驱动（若安装过其他版本或其他方式安装过驱动执行此项）
+> 
+> sudo chmod  a+x NVIDIA-Linux-x86_64-418.56.run    #驱动run文件赋予执行权限`
+> 
+> sudo ./NVIDIA-Linux-x86_64-396.18.run -no-x-check -no-nouveau-check -no-opengl-files #只有禁用opengl这样安装才不会出现循环登陆的问题
+> ```
+>
+> *-no-x-check：安装驱动时关闭X服务*
+>
+> *-no-nouveau-check：安装驱动时禁用nouveau*
+>
+> *-no-opengl-files：只安装驱动文件，不安装OpenGL文件*
+
+5、挂载nvidia驱动
+
+> `modprobe nvidia`
+>
+> `nvidia-smi	#查看nvidia信息，检查驱动是否安装成功`  
+>
+> `reboot`
+
