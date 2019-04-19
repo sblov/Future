@@ -1,0 +1,30 @@
+OA系统
+	办公自动化（office automation	）
+CRM系统
+	客户关系管理（customer relationship management），企业用CRM技术管理与客户之间的关系
+ERP系统
+	企业资源计划（enterprise resource planning），针对物流，人流，财流，信息流集成一体化的企业管理软件
+
+软件开发流程（瀑布模型）
+	需求调研分析--需求规格说明书
+	设计阶段（概要设计、详细设计）--页面原型、数据库设计、设计文档
+	编码阶段
+	测试阶段
+	上线与运维
+
+strust2、hibernate、spring、junit、jquery、easy ui、ztree、poi、cxf、shiro、quartz、hightcharts
+
+数据库环境
+maven环境
+svn环境
+
+PowerDesign
+
+eclipse+JPA生成实体类
+
+验证码
+
+数据库创建用户
+	create user xxx identified by 'xxx';
+授权数据库用户
+	grant all on xxx.*（xxx数据库中所有） to xxx;

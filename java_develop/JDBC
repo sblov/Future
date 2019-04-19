@@ -1,0 +1,27 @@
+JDBC
+JDO
+Hibernate,mybatis
+
+PreparedStatement > Statement
+数据库服务器对预编译语句有缓存功能
+
+DAO:Data Access Object
+
+ReflectionUtils设值属性值
+BeanUtils设值属性值
+
+
+try(){}:
+try-with-resources这种声明方式指定了一个或多个资源，而且这些资源需要在程序结束的时候进行关闭。这种方式可以确保每个指定的资源都可以在声明结束的时候进行关闭（就是在try(){}结束的时候）。但是前提是这些资源必须实现接口java.lang.AutoCloseable（其中包括实现了java.io.Closeable接口的所有对象），原因是java.io.Closeable接口继承了java.lang.AutoCloseable接口。
+
+ResultSetMetaData
+DatabaseMetaData
+
+BLOB
+
+批量处理
+
+QueryRunner
+
+调用函数，存储过程
+

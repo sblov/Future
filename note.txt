@@ -1,0 +1,10 @@
+java基础：io,thread,nio,java8,jvm
+计算机知识：algorithm,designpattern,network
+数据库：mysql,redis,oracle,mongodb,memcached
+前端：html,css,js,es6-9,jquery,vue,angular,bootstrap,layui,easyui,webpack,nodejs(express,koa),ajax
+模板引擎：freemarker,thymleaf
+web框架：spring,springmvc,mybatis,hibernate,springboot,shiro,springcloud,restful,dubbo,zookeeper
+服务：tomcat,nginx,netty,websocket,webservice(soap),activeMQ,maven,jenkins
+工具：git,eclipse,idea,atom,sublime,navicat,typora,postman,filezilla
+
+扩展：python,linux(shell),regEx,docker,小程序
